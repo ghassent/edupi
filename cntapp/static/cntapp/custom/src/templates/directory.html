@@ -1,0 +1,33 @@
+<td>
+    <a directory-id='<%= model.get("id") %>' href='<%= baseLink %>/<%= model.get("id") %>'
+       class="sub-directory">
+        <%= model.get('name') %>
+    </a>
+</td>
+<td>
+    <a class="btn btn-default btn-edit"
+       data-toggle="modal"
+       data-target="#modal-directory-edit-<%= model.get('id') %>"
+       data-i18n="btn-edit"
+       role="button">
+        Edit
+    </a>
+
+    <% if (baseLink !== '#directories') { %>
+        <a class="btn btn-default btn-unlink-directory"
+           data-toggle="modal"
+           data-target="#modal-confirm"
+           type="button"
+           data-i18n="btn-unlink"
+                >Unlink</a>
+    <% } %>
+
+    <a class="btn btn-danger btn-delete-directory"
+       data-toggle="modal"
+       data-target="#modal-confirm"
+       type="button"
+       data-i18n="btn-delete"
+            >Delete</a>
+
+    <div class="modal-area"></div>
+</td>
