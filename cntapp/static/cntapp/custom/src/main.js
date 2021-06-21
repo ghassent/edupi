@@ -46,6 +46,10 @@ define('kickstart', function (require) {
     cntapp = require('app');
 });
 
+
+/home/ghassen/edupi/cntapp/static/cntapp/custom/src/main.js
+
+
 require(['jquery'], function($) {
     $(document).ready(function () {
         require(['kickstart']);
