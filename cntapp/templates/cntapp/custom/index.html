@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{{ title | default:"Edupi" }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/dist/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-table/dist/bootstrap-table.min.css' %}">
+    <link rel="stylesheet" href="{% static 'cntapp/custom/css/sb-admin-2.css' %}">
+    <link rel="stylesheet" href="{% static 'cntapp/custom/css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'dropzone/dist/dropzone.css' %}">
+
+</head>
+
+<body>
+Loading ...
+<script data-main="{% static 'cntapp/custom/all.js' %}" src="{% static 'requirejs/require.js' %}"></script>
+{#<script data-main="{% static 'cntapp/custom/src/main.js' %}" src="{% static 'requirejs/require.js' %}"></script>#}
+</body>
+</html>

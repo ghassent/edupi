@@ -1,0 +1,20 @@
+<div id="path" class="center-block">
+    <ol class="breadcrumb path-breadcrumb list-inline">
+        <li><a href="#directories" data-i18n="home">Home</a></li>
+        <%
+        var link = '#directories'
+            linkedNum = path.length - 1;
+        _.each(path, function (dir, index) {
+        %>
+        <li>
+            <% if (index < linkedNum) {
+                link = link + '/' + dir.get('id'); %>
+                <a href="<%= link %>"><%= dir.get('name') %></a>
+            <% } else { %>
+                <%= dir.get('name') %>
+            <% } %>
+        </li>
+        <% }); %>
+    </ol>
+</div>
+

@@ -1,0 +1,98 @@
+<div class="row">
+
+    <div class="col-sm-2 col-lg-1">
+    <a href="<%= model.get('file') %>" target="_blank">
+        <%
+        var imageFile, dType;
+        dType = model.get('type');
+        if (model.get('thumbnail')) {
+            imageFile = model.get('thumbnail');
+        } else {
+            if (dType === 'v') {
+                imageFile = 'default-video.png'
+            } else if (dType === 'a') {
+                imageFile = 'default-audio.png'
+            } else if (dType === 'g') {
+                imageFile = 'default-google-apk.png'
+            } else if (dType === 'g') {
+                imageFile = 'default-video.png'
+            } else if (dType === 'p') {
+                imageFile = 'default-pdf.png'
+            } else {
+                imageFile = 'default-file.png'
+            }
+            imageFile = "/static/cntapp/custom/images/" + imageFile;
+        }
+        %>
+        <img class="img-responsive" src="<%= imageFile %>">
+    </a>
+    </div>
+    <div class="col-sm-6 col-lg-5">
+
+        <!-- Play files -->
+        <% if (['v', 'a', 'i', 'p'].indexOf(model.get('type')) > -1) { %>
+            <a type="button"
+               class="btn-play"
+               data-toggle="modal"
+               data-target="#modal-<%= model.get('id') %>">
+                <%= model.get('name') %>
+            </a>
+        <% } else { %>
+            <a href="<%= model.get('file') %>" target="_blank">
+                <%= model.get('name') %>
+            </a>
+        <% } %>
+
+        <br>
+        <p>
+            <%= model.get('description') %>
+        </p>
+    </div>
+    <div class="col-sm-1">
+        <% if (model.get('directory_set').length > 0) { %>
+            <span tabindex="0"
+                  class="paths paths-popover"
+                  data-toggle="path-popover"
+                  data-placement="bottom"
+                  data-trigger="focus"
+                  title="Paths"
+                  style="color: lightslategray;"
+                  role="button">
+                <%= model.get('directory_set').length %>
+            </span>
+        <% } %>
+    </div>
+
+    <div class="col-sm-3">
+        <!-- actions -->
+        <span class="glyphicon glyphicon-pencil custom-glyphicon"
+              title="edit"
+              data-i18n="[title]popupinfo-edit"
+                ></span>
+
+        <a href="<%= model.get('file') %>" style="text-decoration: none;" download>
+            <span  class="glyphicon glyphicon-download custom-glyphicon"
+                   title="download"
+                   data-i18n="[title]popupinfo-download"
+                    ></span>
+        </a>
+
+        <% if (! isSearchResult) { %>
+        <span class="glyphicon glyphicon-link custom-glyphicon"
+              title="unlink"
+              data-i18n="[title]popupinfo-unlink"
+              data-toggle='modal'
+              data-target='#modal-confirm'></span>
+        <% } %>
+
+        <span class="glyphicon glyphicon-trash custom-glyphicon"
+              title="delete"
+              data-i18n="[title]popupinfo-delete"
+              data-toggle='modal'
+              data-target='#modal-confirm'>
+        </span>
+
+    </div>
+    <div class="modal-area"></div>
+</div>
+

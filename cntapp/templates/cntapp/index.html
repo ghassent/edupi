@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{{ title | default:"Edupi" }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/dist/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'cntapp/final/css/style.css' %}">
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 loading">
+            Loading EduPi...
+            <span class="glyphicon glyphicon-repeat glyphicon-refresh-animate"></span>
+        </div>
+    </div>
+</div>
+<script data-main="{% static 'cntapp/final/all.js' %}" src="{% static 'requirejs/require.js' %}"></script>
+{#<script data-main="{% static 'cntapp/final/src/main.js' %}" src="{% static 'requirejs/require.js' %}"></script>#}
+</body>
+</html>
