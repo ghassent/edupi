@@ -22,11 +22,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'uz#38i83qtu!#f^^4f7=zs311hg)_82kd&uf4!8f2&q3i30+p#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = ['edupi.fondationorange.org']
+ALLOWED_HOSTS = ['edupi.fondationorange.org','18.221.119.106']
 
 
 # Application definition
